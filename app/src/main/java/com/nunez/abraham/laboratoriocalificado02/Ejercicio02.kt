@@ -2,6 +2,7 @@ package com.nunez.abraham.laboratoriocalificado02
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -25,14 +26,19 @@ class Ejercicio02 : AppCompatActivity() {
             val ciudad = binding.ciudad.text.toString()
             val direccion = binding.direction.text.toString()
 
-            val intent = Intent(this, Ejercicio02Datos::class.java).apply {
-                putExtra("NOMBRES", nombres)
-                putExtra("NUMERO", numero)
-                putExtra("PRODUCTOS", productos)
-                putExtra("CIUDAD", ciudad)
-                putExtra("DIRECCION", direccion)
+            if (nombres.isEmpty() || numero.isEmpty() || productos.isEmpty() || ciudad.isEmpty() || direccion.isEmpty()) {
+
+                Toast.makeText(this, "Por favor completa todos los campos", Toast.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent(this, Ejercicio02Datos::class.java).apply {
+                    putExtra("NOMBRES", nombres)
+                    putExtra("NUMERO", numero)
+                    putExtra("PRODUCTOS", productos)
+                    putExtra("CIUDAD", ciudad)
+                    putExtra("DIRECCION", direccion)
+                }
+                startActivity(intent)
             }
-            startActivity(intent)
         }
     }
 }
