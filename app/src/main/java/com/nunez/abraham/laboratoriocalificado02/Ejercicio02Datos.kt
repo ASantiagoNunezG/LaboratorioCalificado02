@@ -50,7 +50,7 @@ class Ejercicio02Datos : AppCompatActivity() {
     }
 
     private fun WhatsappMessage() {
-        val nombreCliente = "Nombre Cliente"
+        val nombreCliente = binding.usuario.text.toString()
         val productos = binding.producto.text.toString()
         val direccion = binding.ubicacion.text.toString()
         val numeroCliente = binding.telefono.text.toString()
